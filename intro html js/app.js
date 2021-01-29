@@ -1,7 +1,7 @@
 const todos = [];
 
 const pendingClasses =
-    "bg-white w-full text-center text-green-500 rounded py-4 border-2 border-green-500 transition transform ease-in-out duration-300 hover:bg-green-500 hover:text-white hover:scale-110 hover:rotate-1 cursor-pointer"; 
+    "bg-white w-full text-center text-red-500 rounded py-4 border-2 border-red-500 transition transform ease-in-out duration-300 hover:bg-red-500 hover:text-white hover:scale-110 hover:rotate-1 cursor-pointer"; 
 const completedClasses =
     "bg-white w-full text-center text-green-500 rounded py-4 border-2 border-green-500 transition transform ease-in-out duration-300 hover:bg-green-500 hover:text-white hover:scale-110 hover:rotate-1 cursor-pointer"; 
 
@@ -19,7 +19,7 @@ const showTodos =() =>{
         pendingList.appendChild(pendingItem);
     });
     
-    const completedList = todos.filter((todo) => todo.status === "completedList");
+    const completedList = document.getElementById("completedList");
     const completedTodos = todos.filter((todo) => todo.status === "done");
 
     completedList.innerHTML = "";
@@ -39,7 +39,7 @@ addForm.addEventListener("submit", (event) => {
     event.preventDefault();
     todos.push({
         id: Math.floor(Math.random() * 100000).toString(),
-        text: newTodo.Value,
+        text: newTodo.value,
         status: "pending",
     });
     newTodo.value = "";
